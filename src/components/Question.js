@@ -3,18 +3,23 @@ import { connect } from 'react-redux'
 
 class Question extends Component {
   render() {
-        console.log(this.props)
-        return (
+    const { questionIds, questions } = this.props;
+
+    console.log(this.props)
+    return (
+        <div>
             <div>
-                <div>
-                    Question
-                </div>
-                {<ul>
-                    Question ID: {this.props.Id}
-                </ul>}
+                Question
             </div>
-        )
-    }
+            {questionIds.map((id) => (
+                <li key={id}>
+                    <div>{ questions[id].author } </div>
+                    <div>Would You Rather</div>
+                    <h4>{ questions[id].optionOne.text } or { questions[id].optionTwo.text }</h4>
+                </li>
+            ))}
+        </div>
+    )}
 }
 
 function mapStateToProps({ authedUser, questions}, {id}) {
@@ -22,6 +27,8 @@ function mapStateToProps({ authedUser, questions}, {id}) {
   
     return {
         authedUser,
+        questionIds: Object.keys(questions),
+        questions,
         question: question
   }
 }
