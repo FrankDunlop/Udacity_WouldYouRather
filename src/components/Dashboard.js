@@ -4,12 +4,13 @@ import Question from './Question'
 
 class Dashboard extends Component {
     render() {
-        console.log(this.props)
+        const { questionIds } = this.props;
+
         return (
             <div>
-                <h3 className='center'> Questions</h3>
-                <ul className='dashboard-list'>
-                    {this.props.questionIds.map((id) => (
+                <h3> Questions</h3>
+                <ul>
+                    {questionIds.map((id) => (
                         <li key={id}>
                             <div>
                                 <Question Id={id} />

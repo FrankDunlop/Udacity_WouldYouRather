@@ -21,17 +21,16 @@ class App extends Component{
         <Fragment>
           <LoadingBar />
           <div>
-            
-            {this.props.authedUser === null
+            {
+              this.props.authedUser === ''
               ? <Login />
-              :
-              <div>
-                <Nav />
-                <Route path='/' exact component={Dashboard} />
-                <Route path='/Dashboard' exact component={Dashboard} />
-                <Route path='/question' component={Question} />
-                <Route path='/new' component={NewQuestion} />
-              </div>
+              : <div>
+                  <Nav />
+                  <Route path='/' exact component={Dashboard} />
+                  <Route path='/Dashboard' exact component={Dashboard} />
+                  <Route path='/question' component={Question} />
+                  <Route path='/new' component={NewQuestion} />
+                </div>
             }
           </div>
         </Fragment>
