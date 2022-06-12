@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 //import { render } from 'react-dom';
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
-import Dashboard from './Dashboard';
+import Dashboard from './Dashboard'
 
 class App extends Component{
   componentDidMount() {
-    this.props.dispatch(handleInitialData());
+    this.props.dispatch(handleInitialData())
   }
 
    render() {
@@ -26,4 +26,4 @@ function mapStateToProps({ authedUser }){
   }
 }
 
-export default connect()(App);
+export default connect(mapStateToProps)(App);
