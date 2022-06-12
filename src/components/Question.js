@@ -6,6 +6,9 @@ class Question extends Component {
         console.log(this.props)
         return (
             <div>
+                <div>
+                    Question
+                </div>
                 {<ul>
                     Question ID: {this.props.Id}
                 </ul>}
