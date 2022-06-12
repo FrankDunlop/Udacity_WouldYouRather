@@ -4,7 +4,7 @@ import { receiveUsers } from "../actions/users"
 import { setAuthedUser } from "../actions/authedUser"
 import { showLoading, hideLoading } from "react-redux-loading"
 
-const AUTHED_ID = 'fdunlop'
+const AUTHED_ID = ''
 
 //redux thunk pattern to make async request inside handleInitialData function
 //getInitialData returns promise that will pass an object with users and questions property

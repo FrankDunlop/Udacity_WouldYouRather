@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
+import Login from './Login'
 import Dashboard from './Dashboard'
 import Question from './Question'
 import NewQuestion from './NewQuestion'
@@ -20,10 +21,12 @@ class App extends Component{
         <Fragment>
           <LoadingBar />
           <div>
-            <Nav />
-            {this.props.loading === true
-              ? null
-              :<div>
+            
+            {this.props.authedUser === null
+              ? <Login />
+              :
+              <div>
+                <Nav />
                 <Route path='/' exact component={Dashboard} />
                 <Route path='/Dashboard' exact component={Dashboard} />
                 <Route path='/question' component={Question} />
@@ -39,7 +42,7 @@ class App extends Component{
 
 function mapStateToProps({ authedUser }){
   return {
-    loading: authedUser === null
+    authedUser
   }
 }
 
