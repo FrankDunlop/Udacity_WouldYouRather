@@ -15,7 +15,6 @@ class QuestionList extends Component {
     }
 
     getAnsweredQuestion = (option, userSelection) => {
-        console.log(option + ' ' + userSelection)
         if(option === 1){
             return userSelection === 'optionOne' ? 'none' : 'line-through' 
         }
@@ -25,7 +24,7 @@ class QuestionList extends Component {
     }
 
     render() {
-    const { user, authedUser, questions, answeredQuestions, unansweredQuestions } = this.props;
+    const { user, questions, answeredQuestions, unansweredQuestions } = this.props;
 
     return (
         <div>
