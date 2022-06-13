@@ -26,7 +26,6 @@ class QuestionList extends Component {
                 <div id='unanswered'>
                     {unansweredQuestions && unansweredQuestions.map((id) => (
                         <li key={id}>
-                            {console.log('Q1' + questions[id].id)}
                             <Question answered={false} questionId={questions[id].id}/>
                         </li>
                     ))}
@@ -37,7 +36,6 @@ class QuestionList extends Component {
                 <div id='answered'>
                 {answeredQuestions && answeredQuestions.map((id) => (
                     <li key={id}>
-                        {console.log('Q2' + questions[id].id)}
                         <Question answered={true} questionId={questions[id].id}/>
                     </li>
                 ))}
