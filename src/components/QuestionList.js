@@ -14,21 +14,28 @@ class QuestionList extends Component {
         })
     }
 
+    getAnsweredQuestion = (option, userSelection) => {
+        console.log(option + ' ' + userSelection)
+        if(option === 1){
+            return userSelection === 'optionOne' ? 'none' : 'line-through' 
+        }
+        if(option === 2){
+            return userSelection === 'optionTwo' ? 'none' : 'line-through' 
+        }
+    }
+
     render() {
-    const { questions, answeredQuestions, unansweredQuestions } = this.props;
+    const { user, authedUser, questions, answeredQuestions, unansweredQuestions } = this.props;
 
     return (
         <div>
             <input type="submit" value={this.state.toggleText} onClick={this.toggleQuestions} />
-            
+
             {this.state.showUnanswered && (
                 <div id='unanswered'>
                     {unansweredQuestions && unansweredQuestions.map((id) => (
                         <li key={id}>
-                            {/* <div>Unanswered {questions[id].timestamp}</div> */}
-                            <div>{ questions[id].author } </div>
                             <div>Would you rather { questions[id].optionOne.text } or { questions[id].optionTwo.text } ?</div>
-                            
                         </li>
                     ))}
                 </div>
@@ -38,9 +45,7 @@ class QuestionList extends Component {
                 <div id='answered'>
                 {answeredQuestions && answeredQuestions.map((id) => (
                     <li key={id}>
-                        {/* <div>Answered {questions[id].timestamp}</div> */}
-                        <div>{ questions[id].author } </div>
-                        <div>Would you rather { questions[id].optionOne.text } or { questions[id].optionTwo.text } ?</div>
+                        <div>Would rather <span style={{ textDecorationLine: this.getAnsweredQuestion(1, user.answers[id]) }}>{ questions[id].optionOne.text }</span> <span style={{ textDecorationLine: this.getAnsweredQuestion(2, user.answers[id]) }}>{ questions[id].optionTwo.text }</span></div>
                     </li>
                 ))}
             </div>
@@ -49,9 +54,9 @@ class QuestionList extends Component {
     )}
 }
 
-function mapStateToProps({ authedUser, questions, users}) {
-    //const question = questions[id]
+function mapStateToProps({ authedUser, questions, users},{id}) {
     const user = users[authedUser]
+
     var answeredQuestions = []
     var unansweredQuestions = []
 
@@ -66,12 +71,12 @@ function mapStateToProps({ authedUser, questions, users}) {
     }   
 
     return {
+        user,
         authedUser,
         questionIds: Object.keys(questions),
         questions,
         answeredQuestions,
         unansweredQuestions,
-        //question: question
   }
 }
 
