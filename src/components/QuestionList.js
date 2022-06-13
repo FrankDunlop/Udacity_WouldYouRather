@@ -27,8 +27,8 @@ class QuestionList extends Component {
                         <li key={id}>
                             {/* <div>Unanswered {questions[id].timestamp}</div> */}
                             <div>{ questions[id].author } </div>
-                            <div>Would You Rather</div>
-                            <button>{ questions[id].optionOne.text } </button> or <button>{ questions[id].optionTwo.text }</button>
+                            <div>Would you rather { questions[id].optionOne.text } or { questions[id].optionTwo.text } ?</div>
+                            
                         </li>
                     ))}
                 </div>
@@ -40,8 +40,7 @@ class QuestionList extends Component {
                     <li key={id}>
                         {/* <div>Answered {questions[id].timestamp}</div> */}
                         <div>{ questions[id].author } </div>
-                        <div>Would You Rather</div>
-                        <button>{ questions[id].optionOne.text } </button> or <button>{ questions[id].optionTwo.text }</button>
+                        <div>Would you rather { questions[id].optionOne.text } or { questions[id].optionTwo.text } ?</div>
                     </li>
                 ))}
             </div>
