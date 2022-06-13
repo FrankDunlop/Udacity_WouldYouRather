@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Question from './Question'
 
 class QuestionList extends Component {
     state = { 
@@ -14,17 +15,8 @@ class QuestionList extends Component {
         })
     }
 
-    getAnsweredQuestion = (option, userSelection) => {
-        if(option === 1){
-            return userSelection === 'optionOne' ? 'none' : 'line-through' 
-        }
-        if(option === 2){
-            return userSelection === 'optionTwo' ? 'none' : 'line-through' 
-        }
-    }
-
     render() {
-    const { user, questions, answeredQuestions, unansweredQuestions } = this.props;
+    const { questions, answeredQuestions, unansweredQuestions } = this.props;
 
     return (
         <div>
@@ -34,7 +26,8 @@ class QuestionList extends Component {
                 <div id='unanswered'>
                     {unansweredQuestions && unansweredQuestions.map((id) => (
                         <li key={id}>
-                            <div>Would you rather { questions[id].optionOne.text } or { questions[id].optionTwo.text } ?</div>
+                            {console.log('Q1' + questions[id].id)}
+                            <Question answered={false} questionId={questions[id].id}/>
                         </li>
                     ))}
                 </div>
@@ -44,7 +37,8 @@ class QuestionList extends Component {
                 <div id='answered'>
                 {answeredQuestions && answeredQuestions.map((id) => (
                     <li key={id}>
-                        <div>Would rather <span style={{ textDecorationLine: this.getAnsweredQuestion(1, user.answers[id]) }}>{ questions[id].optionOne.text }</span> <span style={{ textDecorationLine: this.getAnsweredQuestion(2, user.answers[id]) }}>{ questions[id].optionTwo.text }</span></div>
+                        {console.log('Q2' + questions[id].id)}
+                        <Question answered={true} questionId={questions[id].id}/>
                     </li>
                 ))}
             </div>
@@ -70,12 +64,9 @@ function mapStateToProps({ authedUser, questions, users},{id}) {
     }   
 
     return {
-        user,
-        authedUser,
-        questionIds: Object.keys(questions),
         questions,
         answeredQuestions,
-        unansweredQuestions,
+        unansweredQuestions
   }
 }
 
