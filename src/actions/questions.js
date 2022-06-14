@@ -3,6 +3,7 @@ import { showLoading, hideLoading } from "react-redux-loading"
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
+export const ADD_QUESTION_VOTE = 'ADD_QUESTION_VOTE'
 
 export function receiveQuestions (questions) {
   return {
@@ -32,5 +33,14 @@ export function handleAddQuestion(optionOneText, optionTwoText)
     })
     .then((question) => dispatch(addQuestion(question)))
     .then(() => dispatch(hideLoading()))
+  }
+}
+
+export function addQuestionVote(user, questionId, answer) {
+  return {
+    type: ADD_QUESTION_VOTE,
+    user,
+    questionId,
+    answer
   }
 }
