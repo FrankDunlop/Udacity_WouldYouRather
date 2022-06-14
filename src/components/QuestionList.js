@@ -16,11 +16,12 @@ class QuestionList extends Component {
     }
 
     render() {
-    const { questions, answeredQuestions, unansweredQuestions } = this.props
+    const { user, questions, answeredQuestions, unansweredQuestions } = this.props
 
     return (
         <div>
-            <input type="submit" value={this.state.toggleText} onClick={this.toggleQuestions} />
+            <div>Welcome {user ? user.name : '' }</div>
+            <div><input type="submit" value={this.state.toggleText} onClick={this.toggleQuestions} /></div>
 
             {this.state.showUnanswered && (
                 <div id='unanswered'>
@@ -45,7 +46,7 @@ class QuestionList extends Component {
     )}
 }
 
-function mapStateToProps({ authedUser, questions, users},{id}) {
+function mapStateToProps({ authedUser, questions, users }) {
     const user = users[authedUser]
 
     var answeredQuestions = []
@@ -62,6 +63,7 @@ function mapStateToProps({ authedUser, questions, users},{id}) {
     }   
 
     return {
+        user,
         questions,
         answeredQuestions,
         unansweredQuestions
