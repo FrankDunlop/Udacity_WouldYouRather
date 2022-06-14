@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { setAuthedUser } from '../actions/authedUser'
 
 const Navigation = () => {
   return (
@@ -22,16 +21,12 @@ const Navigation = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to='/' exact onClick={handleUserLogout}>
+        <NavLink to='/logout'>
             Logout
         </NavLink>
       </li>
     </ul>
-  );
-};
-
-const handleUserLogout = id => {
-  this.props.dispatch(setAuthedUser(id))
+  )
 }
 
 export default connect()(Navigation)
