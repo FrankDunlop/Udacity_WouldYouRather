@@ -23,9 +23,11 @@ class NewQuestion extends Component{
             this.props.dispatch(handleAddQuestion(this.state.optionOne, this.state.optionTwo))
         }
 
+        if (this.state.saved) {
+            return <Redirect to={'/'} />
+        }
+
         return (
-            this.state.saved ? <Redirect to="/" /> :
-            
             <div>
                 <div>Would You Rather?</div>
                 <form onSubmit={handleSubmit}>
