@@ -23,7 +23,7 @@ class App extends Component{
           <LoadingBar />
           <div>
             {
-              this.props.authedUser === ''
+              this.props.authedUser === null
                ? <Login />
                : 
               <div>

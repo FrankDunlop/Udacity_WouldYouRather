@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { setAuthedUser } from '../actions/authedUser';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import { setAuthedUser } from '../actions/authedUser'
 
 class Login extends Component {
     handleUserLogin = id => {

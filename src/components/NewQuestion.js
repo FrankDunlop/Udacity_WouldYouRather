@@ -1,25 +1,31 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom';
 import { handleAddQuestion } from '../actions/questions'
 
 class NewQuestion extends Component{        
     state = { 
         optionOne: '',
-        optionTwo: ''
+        optionTwo: '',
+        Saved: false
     }
 
     render() {    
         const handleSubmit = (e) => {
             e.preventDefault()
-            this.props.dispatch(handleAddQuestion(this.state.optionOne, this.state.optionTwo))
 
             this.setState(() => ({
                 optionOne: '',
-                optionTwo: ''
+                optionTwo: '',
+                saved: true
             }))
+
+            this.props.dispatch(handleAddQuestion(this.state.optionOne, this.state.optionTwo))
         }
 
         return (
+            this.state.saved ? <Redirect to="/" /> :
+            
             <div>
                 <div>Would You Rather?</div>
                 <form onSubmit={handleSubmit}>
