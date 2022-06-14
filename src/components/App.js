@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react'
 //import { render } from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Login from './Login'
+import Logout from './Logout'
 import QuestionList from './QuestionList'
 import Question from './Question'
 import NewQuestion from './NewQuestion'
@@ -23,16 +24,19 @@ class App extends Component{
           <LoadingBar />
           <div>
             {
-              this.props.authedUser === null
-               ? <Login />
-               : 
+              this.props.authedUser === null ? <Login /> : 
               <div>
                   <Nav />
                   <Route path='/' exact component={Login} />
+                  <Route path='/logout' exact component={Logout} />
                   <Route path='/leaderboard' component={LeaderBoard} />
                   <Route path='/questions' component={QuestionList} />
                   <Route path='/questions/:id' component={Question} />
                   <Route path='/new' component={NewQuestion} />
+                  {/* <Route path="/404" component={Error} />
+                  <Redirect to="/404" />  */}
+                  {/* <Route path='*' component={Error} />  */}
+
                 </div>
             }
           </div>
@@ -41,6 +45,12 @@ class App extends Component{
      )
    }
 }
+
+const Error = () => (
+  <div>
+    <h3>This Page Does Not Exist</h3>
+  </div>
+)
 
 function mapStateToProps({ authedUser }){
   return {
