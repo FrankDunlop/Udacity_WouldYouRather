@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { setAuthedUser } from '../actions/authedUser';
 
 class Login extends Component {
@@ -8,7 +9,11 @@ class Login extends Component {
     }
 
   render() {
-    const { userIds, users } = this.props;
+    const { authedUser, userIds, users } = this.props;
+
+    if (authedUser) {
+      return <Redirect to={'/questions'} />
+    }
 
     return (
       <div>
@@ -27,8 +32,9 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ authedUser, users }) {
   return {
+    authedUser,
     userIds: Object.keys(users),
     users
   };

@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Login from './Login'
-import Dashboard from './Dashboard'
 import QuestionList from './QuestionList'
 import Question from './Question'
 import NewQuestion from './NewQuestion'
@@ -25,13 +24,13 @@ class App extends Component{
           <div>
             {
               this.props.authedUser === ''
-              ? <Login />
-              : <div>
+               ? <Login />
+               : 
+              <div>
                   <Nav />
-                  <Route path='/' exact component={Dashboard} />
-                  <Route path='/leaderboard' exact component={LeaderBoard} />
-                  <Route path='/Questions' exact component={Dashboard} />
-                  <Route path='/question' component={QuestionList} />
+                  <Route path='/' exact component={Login} />
+                  <Route path='/leaderboard' component={LeaderBoard} />
+                  <Route path='/questions' component={QuestionList} />
                   <Route path='/questions/:id' component={Question} />
                   <Route path='/new' component={NewQuestion} />
                 </div>
