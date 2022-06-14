@@ -8,6 +8,7 @@ import Dashboard from './Dashboard'
 import QuestionList from './QuestionList'
 import Question from './Question'
 import NewQuestion from './NewQuestion'
+import LeaderBoard from './LeaderBoard'
 import LoadingBar from 'react-redux-loading'
 import Nav from './Nav'
 
@@ -28,6 +29,7 @@ class App extends Component{
               : <div>
                   <Nav />
                   <Route path='/' exact component={Dashboard} />
+                  <Route path='/leaderboard' exact component={LeaderBoard} />
                   <Route path='/Questions' exact component={Dashboard} />
                   <Route path='/question' component={QuestionList} />
                   <Route path='/questions/:id' component={Question} />
@@ -41,21 +43,10 @@ class App extends Component{
    }
 }
 
-// function mapStateToProps({ authedUser }){
-//   return {
-//     authedUser
-//   }
-// }
-
-function mapStateToProps({ authedUser, users, questions }) {
-  if (users && authedUser) {
-    return {
-      authedUser
-    };
-  }
+function mapStateToProps({ authedUser }){
   return {
     authedUser
-  };
+  }
 }
 
 export default connect(mapStateToProps)(App);

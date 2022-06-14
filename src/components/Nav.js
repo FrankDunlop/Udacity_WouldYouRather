@@ -19,6 +19,11 @@ const Navigation = () => {
             New Question
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/leaderboard">
+            LeaderBoard
+        </NavLink>
+      </li>
     </ul>
   );
 };
