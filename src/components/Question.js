@@ -33,7 +33,7 @@ class Question extends Component {
           <div>
                 { id && !answered && (
                     <div>
-                        <img  alt='pic' width="50" height="50" src={users[questions[id].author].avatarURL}/>
+                        <img  alt='pic' src={'/images/' + users[questions[id].author].avatarURL}/>
                         <div>{users[questions[id].author].name} asked would you rather?</div>
                         <div><button onClick={() => this.saveAnswer(user.id, id, 'optionOne')}>{ questions[id].optionOne.text }</button> or <button onClick={() => this.saveAnswer(user.id, id, 'optionTwo')}>{ questions[id].optionTwo.text }</button></div>
                     </div>
@@ -41,6 +41,7 @@ class Question extends Component {
 
                 { id && answered && (
                     <div>
+                        <img  alt='pic' src={'/images/' + users[questions[id].author].avatarURL}/>
                         <div>{user.name} would rather <span style={{ textDecorationLine: this.getAnsweredQuestion(1, user.answers[id]) }}>{ questions[id].optionOne.text }</span> <span style={{ textDecorationLine: this.getAnsweredQuestion(2, user.answers[id]) }}>{ questions[id].optionTwo.text }</span></div>
                         <div>Option 1 has {questions[id].optionOne.votes.length} Votes, {Math.round(questions[id].optionOne.votes.length / (questions[id].optionOne.votes.length + questions[id].optionTwo.votes.length) * 100)}% of people voted for '{ questions[id].optionOne.text }'</div>
                         <div>Option 2 has {questions[id].optionTwo.votes.length} Votes, {Math.round(questions[id].optionTwo.votes.length / (questions[id].optionOne.votes.length + questions[id].optionTwo.votes.length) * 100)}% of people voted for '{ questions[id].optionTwo.text }' </div>
