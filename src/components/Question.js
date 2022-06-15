@@ -54,8 +54,6 @@ class Question extends Component {
 function mapStateToProps({ authedUser, questions, users}, props) {
     const user = users[authedUser]
 
-    console.log('ans '+ props.location.answered)
-
     return {
         user,
         questions,

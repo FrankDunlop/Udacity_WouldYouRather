@@ -18,8 +18,6 @@ class QuestionLink extends Component {
 }
 
 function mapStateToProps({ questions, users },{ id, answered }) {
-    console.log(id + ' ' + answered)
-
     return {
         questions,
         users,
