@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { addUserAnswer } from '../actions/users'
 import { addQuestionVote } from '../actions/questions'
 
 class Question extends Component {
+    state = { Saved: false }
+
     getAnsweredQuestion = (option, userSelection) => {
         if(option === 1){
             return userSelection === 'optionOne' ? 'none' : 'line-through' 
@@ -16,10 +19,15 @@ class Question extends Component {
     saveAnswer(user, id, answer){
         this.props.dispatch(addUserAnswer(user, id, answer))
         this.props.dispatch(addQuestionVote(user, id, answer))
+        this.setState(() => ({ saved: true }))
     }
 
     render() {
         const { answered, id, user, users, questions } = this.props
+
+        if (this.state.saved) {
+            return <Redirect to={'/questions'} />
+        }
 
         return (
           <div>
@@ -34,8 +42,8 @@ class Question extends Component {
                 { id && answered && (
                     <div>
                         <div>{user.name} would rather <span style={{ textDecorationLine: this.getAnsweredQuestion(1, user.answers[id]) }}>{ questions[id].optionOne.text }</span> <span style={{ textDecorationLine: this.getAnsweredQuestion(2, user.answers[id]) }}>{ questions[id].optionTwo.text }</span></div>
-                        <div>Option 1 has {questions[id].optionOne.votes.length} Votes, {questions[id].optionOne.votes.length + questions[id].optionTwo.votes.length}% of people voted for '{ questions[id].optionOne.text }'</div>
-                        <div>Option 2 has {questions[id].optionTwo.votes.length} Votes, {questions[id].optionTwo.votes.length + questions[id].optionTwo.votes.length}% of people voted for '{ questions[id].optionTwo.text }' </div>
+                        <div>Option 1 has {questions[id].optionOne.votes.length} Votes, {Math.round(questions[id].optionOne.votes.length / (questions[id].optionOne.votes.length + questions[id].optionTwo.votes.length) * 100)}% of people voted for '{ questions[id].optionOne.text }'</div>
+                        <div>Option 2 has {questions[id].optionTwo.votes.length} Votes, {Math.round(questions[id].optionTwo.votes.length / (questions[id].optionOne.votes.length + questions[id].optionTwo.votes.length) * 100)}% of people voted for '{ questions[id].optionTwo.text }' </div>
                     </div>
                 )}
           </div>
@@ -46,11 +54,14 @@ class Question extends Component {
 function mapStateToProps({ authedUser, questions, users}, props) {
     const user = users[authedUser]
 
+    console.log('ans '+ props.location.answered)
+
     return {
         user,
         questions,
         users,
-        id: props.match.params.id
+        id: props.match.params.id,
+        answered: props.location.answered
   }
 }
 
