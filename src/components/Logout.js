@@ -6,7 +6,7 @@ import { setAuthedUser } from '../actions/authedUser'
 class Logout extends Component {
     handleUserLogout = () => {
         this.props.dispatch(setAuthedUser(null))
-        return <Redirect to={'/questions'} />
+        return <Redirect to={'/'} />
     }
 
   render() {

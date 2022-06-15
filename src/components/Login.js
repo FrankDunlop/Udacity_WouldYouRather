@@ -28,6 +28,7 @@ class Login extends Component {
 
     return (
       <div>
+            <h3> Welcome to Would You Rather </h3>
             <h3> Login </h3>
             <div>
               <select onChange={handleChange}>
