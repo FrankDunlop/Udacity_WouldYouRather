@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Question from './Question'
+import { Link } from 'react-router-dom'
+import AnsweredQuestion from './AnsweredQuestion'
 
 class QuestionList extends Component {
     state = { 
@@ -16,7 +17,7 @@ class QuestionList extends Component {
     }
 
     render() {
-    const { user, questions, answeredQuestions, unansweredQuestions } = this.props
+    const { user, users, questions, answeredQuestions, unansweredQuestions } = this.props
 
     return (
         <div>
@@ -28,7 +29,13 @@ class QuestionList extends Component {
                 <div id='unanswered'>
                     {unansweredQuestions && unansweredQuestions.map((id) => (
                         <li key={id}>
-                            <Question answered={false} questionId={questions[id].id}/>
+                            <div>
+                                <Link to={{pathname: `/question/${id}`}}>
+                                    <img  alt='pic' width="50" height="50" src={users[questions[id].author].avatarURL}/>
+                                    <div>{users[questions[id].author].name} asked would you rather { questions[id].optionOne.text } or { questions[id].optionTwo.text }?</div>
+                                </Link>
+                            </div>
+
                         </li>
                     ))}
                 </div>
@@ -36,12 +43,12 @@ class QuestionList extends Component {
 
             {!this.state.showUnanswered && (
                 <div id='answered'>
-                {answeredQuestions && answeredQuestions.map((id) => (
-                    <li key={id}>
-                        <Question answered={true} questionId={questions[id].id}/>
-                    </li>
-                ))}
-            </div>
+                    {answeredQuestions && answeredQuestions.map((id) => (
+                        <li key={id}>
+                            <AnsweredQuestion questionId={questions[id].id}/>
+                        </li>
+                    ))}
+                </div>
             )}
         </div>
     )}
@@ -65,6 +72,7 @@ function mapStateToProps({ authedUser, questions, users }) {
 
     return {
         user,
+        users,
         questions,
         answeredQuestions,
         unansweredQuestions
