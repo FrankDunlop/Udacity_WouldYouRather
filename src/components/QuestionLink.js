@@ -8,7 +8,7 @@ class QuestionLink extends Component {
 
     return (
       <div>
-        <Link to={{ pathname: `/question/${id}` }}>
+        <Link to={{ pathname: `/question/${id}`, answered: answered}}>
             <img  alt='pic' width="50" height="50" src={users[questions[id].author].avatarURL}/>
             <div>{users[questions[id].author].name} asked would you rather { questions[id].optionOne.text } or { questions[id].optionTwo.text }?</div>
         </Link>
