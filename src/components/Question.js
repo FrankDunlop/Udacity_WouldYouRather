@@ -29,7 +29,7 @@ class Question extends Component {
           <div>
                 { !answered && (
                     <div>
-                        <img  alt='pic' src={users[questions[questionId].author].avatarURL}/>
+                        <img  alt='pic' width="50" height="50" src={users[questions[questionId].author].avatarURL}/>
                         <div>{users[questions[questionId].author].name} asked would you rather?</div>
                         <div><button onClick={() => this.saveAnswer(user.id, questionId, 'optionOne')}>{ questions[questionId].optionOne.text }</button> or <button onClick={() => this.saveAnswer(user.id, questionId, 'optionTwo')}>{ questions[questionId].optionTwo.text }</button></div>
                     </div>
