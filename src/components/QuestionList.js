@@ -20,6 +20,7 @@ class QuestionList extends Component {
 
     return (
         <div>
+            <img  alt='pic' src={user.avatarURL}/>
             <div>Welcome {user ? user.name : '' }</div>
             <div><input type="submit" value={this.state.toggleText} onClick={this.toggleQuestions} /></div>
 

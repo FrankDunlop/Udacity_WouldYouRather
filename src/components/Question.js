@@ -19,7 +19,7 @@ class Question extends Component {
     }
 
     render() {
-        const { answered, questionId, user, questions} = this.props;
+        const { answered, questionId, user, users, questions} = this.props;
 
         const totalVotes = questions[questionId].optionOne.votes.length + questions[questionId].optionTwo.votes.length
         const option1Precentage = Math.round(questions[questionId].optionOne.votes.length / totalVotes * 100)
@@ -28,7 +28,9 @@ class Question extends Component {
         return (
           <div>
                 { !answered && (
-                    <div>Would you rather
+                    <div>
+                        <img  alt='pic' src={users[questions[questionId].author].avatarURL}/>
+                        <div>{users[questions[questionId].author].name} asked would you rather?</div>
                         <div><button onClick={() => this.saveAnswer(user.id, questionId, 'optionOne')}>{ questions[questionId].optionOne.text }</button> or <button onClick={() => this.saveAnswer(user.id, questionId, 'optionTwo')}>{ questions[questionId].optionTwo.text }</button></div>
                     </div>
                 )}
@@ -51,7 +53,8 @@ function mapStateToProps({ authedUser, questions, users},{id}) {
 
     return {
         user,
-        questions
+        questions,
+        users
   }
 }
 
