@@ -6,7 +6,7 @@ class UserScores extends Component {
 
         return (
             <div >
-                <img  alt='pic' src={user.avatarURL}/>
+                <img  alt='pic' src={'/images/'+ user.avatarURL}/>
                 <div>{user.name} scored {Object.keys(user.answers).length + Object.keys(user.questions).length}</div>
                 <div>Answered {Object.keys(user.answers).length} Questions</div>
                 <div>Asked {Object.keys(user.questions).length} Questions</div>
