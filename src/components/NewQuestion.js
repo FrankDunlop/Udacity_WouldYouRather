@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom'
 import { handleAddQuestion } from '../actions/questions'
 
 class NewQuestion extends Component{        
@@ -41,7 +41,7 @@ class NewQuestion extends Component{
                         <input type="submit" value="Save" disabled={this.state.optionOne.trim().length === 0 || this.state.optionTwo.trim().length === 0} />
                     </div>
                 </form>
-                </div>
+            </div>
         )
     }
 }

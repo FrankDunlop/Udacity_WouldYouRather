@@ -6,7 +6,7 @@ import { handleInitialData } from '../actions/shared'
 import Login from './Login'
 import Logout from './Logout'
 import QuestionList from './QuestionList'
-import UnansweredQuestion from './UnansweredQuestion'
+import Question from './Question'
 import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard'
 import LoadingBar from 'react-redux-loading'
@@ -31,7 +31,7 @@ class App extends Component{
                   <Route path='/logout' exact component={Logout} />
                   <Route path='/leaderboard' component={LeaderBoard} />
                   <Route path='/questions' component={QuestionList} />
-                  <Route path='/question/:id' component={UnansweredQuestion} />
+                  <Route path='/question/:id' component={Question} />
                   <Route path='/new' component={NewQuestion} />
                   {/* <Route path="/404" component={Error} />
                   <Redirect to="/404" />  */}

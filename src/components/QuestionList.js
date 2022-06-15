@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import AnsweredQuestion from './AnsweredQuestion'
+import QuestionLink from './QuestionLink'
 
 class QuestionList extends Component {
     state = { 
@@ -17,7 +16,7 @@ class QuestionList extends Component {
     }
 
     render() {
-    const { user, users, questions, answeredQuestions, unansweredQuestions } = this.props
+    const { user, answeredQuestions, unansweredQuestions } = this.props
 
     return (
         <div>
@@ -30,10 +29,7 @@ class QuestionList extends Component {
                     {unansweredQuestions && unansweredQuestions.map((id) => (
                         <li key={id}>
                             <div>
-                                <Link to={{pathname: `/question/${id}`}}>
-                                    <img  alt='pic' width="50" height="50" src={users[questions[id].author].avatarURL}/>
-                                    <div>{users[questions[id].author].name} asked would you rather { questions[id].optionOne.text } or { questions[id].optionTwo.text }?</div>
-                                </Link>
+                                <QuestionLink id={id} answered={false}/>
                             </div>
 
                         </li>
@@ -45,7 +41,9 @@ class QuestionList extends Component {
                 <div id='answered'>
                     {answeredQuestions && answeredQuestions.map((id) => (
                         <li key={id}>
-                            <AnsweredQuestion questionId={questions[id].id}/>
+                            <div>
+                                <QuestionLink id={id} answered={true}/>
+                            </div>
                         </li>
                     ))}
                 </div>
