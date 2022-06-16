@@ -19,21 +19,21 @@ On the main page the user can select between answered and unanswered questions, 
 
 
 ### Unanswered Questions
-![image](https://user-images.githubusercontent.com/1563903/174122116-ddc9ae5c-ac72-4dcb-9a23-903297aca918.png)
+![image](https://user-images.githubusercontent.com/1563903/174124054-27e08f6b-fe47-4add-bfff-97f74d5bd744.png)
 
 ### Answered Questions
-![image](https://user-images.githubusercontent.com/1563903/174122184-c25ed2d8-8bf0-4451-9644-c5d85a8be6a5.png)
+![image](https://user-images.githubusercontent.com/1563903/174124131-f39a9b9d-bccc-4146-a05d-ac33427bf4c7.png)
 
 ## New Questions
 
 New quesstions can be added to the game
-![image](https://user-images.githubusercontent.com/1563903/174122351-7e978301-7dae-486a-9141-d3d46f97b9fa.png)
+![image](https://user-images.githubusercontent.com/1563903/174124273-5c5721d4-2bec-4d51-934f-22ff856cb657.png)
 
 
 ## Leaderboard
 
 The leaderboard will show the user who has asked the most questions and answered the most questions
-![image](https://user-images.githubusercontent.com/1563903/174122448-20148ca8-91c7-4bfa-b053-43e96ad0d400.png)
+![image](https://user-images.githubusercontent.com/1563903/174124485-73624754-f157-4b8f-bc82-675b0562dfbf.png)
 
 
 ## Runing the project
