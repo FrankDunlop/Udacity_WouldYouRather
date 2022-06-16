@@ -17,7 +17,7 @@ class QuestionList extends Component {
     }
 
     render() {
-    const { user, answeredQuestions, unansweredQuestions } = this.props
+    const { answeredQuestions, unansweredQuestions } = this.props
 
     return (
         <div>
