@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
 import { addUserAnswer } from '../actions/users'
 import { addQuestionVote } from '../actions/questions'
 
 class Question extends Component {
-    state = { saved: false, answered: false }
+    state = { saved: false }
 
     getAnsweredQuestion = (option, userSelection) => {
         if(option === 1){
