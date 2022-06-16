@@ -19,24 +19,31 @@ On the main page the user can select between answered and unanswered questions, 
 
 
 ### Unanswered Questions
+
 ![image](https://user-images.githubusercontent.com/1563903/174124054-27e08f6b-fe47-4add-bfff-97f74d5bd744.png)
 
 ### Answered Questions
+
 ![image](https://user-images.githubusercontent.com/1563903/174124131-f39a9b9d-bccc-4146-a05d-ac33427bf4c7.png)
 
 ## New Questions
 
 New quesstions can be added to the game
+
 ![image](https://user-images.githubusercontent.com/1563903/174124273-5c5721d4-2bec-4d51-934f-22ff856cb657.png)
 
 
 ## Leaderboard
 
 The leaderboard will show the user who has asked the most questions and answered the most questions
+
 ![image](https://user-images.githubusercontent.com/1563903/174124485-73624754-f157-4b8f-bc82-675b0562dfbf.png)
 
 
 ## Runing the project
+
 Clone the repo from GitHub: $ git clone https://github.com/FrankDunlop/Udacity_WouldYouRather.git
+
 Install project dependencies by running: npm install
+
 Start the server by running: npm start
