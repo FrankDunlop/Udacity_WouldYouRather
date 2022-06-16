@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { addUserAnswer } from '../actions/users'
 import { addQuestionVote } from '../actions/questions'
 import Avatar from './Avatar'
@@ -24,6 +25,11 @@ class Question extends Component {
 
     render() {
         const { answered, id, user, users, questions } = this.props
+
+        console.log(id)
+        if (!questions[id]) {
+            return <Redirect to={'/error'} />
+          }
 
         return (
           <div id='question'>
