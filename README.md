@@ -7,6 +7,7 @@ This project was built with React and Redux, bootstrapped with [Create React App
 ## Login
 
 The user can select from three user logins on the home page
+
 ![image](https://user-images.githubusercontent.com/1563903/174123209-578a2e81-8cae-4f24-94c1-01bdfd721b70.png)
 
 
