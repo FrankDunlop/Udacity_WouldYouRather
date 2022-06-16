@@ -32,7 +32,7 @@ class App extends Component{
                   <Route path='/leaderboard' component={LeaderBoard} />
                   <Route path='/questions' component={QuestionList} />
                   <Route path='/question/:id' component={Question} />
-                  <Route path='/new' component={NewQuestion} />
+                  <Route path='/add' component={NewQuestion} />
                   {/* <Route path="/404" component={Error} />
                   <Redirect to="/404" />  */}
                   {/* <Route path='*' component={Error} /> */}
