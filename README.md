@@ -7,18 +7,30 @@ This project was built with React and Redux, bootstrapped with [Create React App
 ## Login
 
 The user can select from three user logins on the home page
+![image](https://user-images.githubusercontent.com/1563903/174121617-4b1224d2-6c4b-46b4-8e71-97218d4b970f.png)
+
 
 ## Questions
 
-On the main page the user can select between answered and unanswered questions
+On the main page the user can select between answered and unanswered questions, the button on screen toggles between answered and unanswered
+![image](https://user-images.githubusercontent.com/1563903/174121735-dc80fc12-9a77-4ea2-a19b-0c179d0d701d.png)
+
+### Unanswered Questions
+![image](https://user-images.githubusercontent.com/1563903/174122116-ddc9ae5c-ac72-4dcb-9a23-903297aca918.png)
+
+### Answered Questions
+![image](https://user-images.githubusercontent.com/1563903/174122184-c25ed2d8-8bf0-4451-9644-c5d85a8be6a5.png)
 
 ## New Questions
 
 New quesstions can be added to the game
+![image](https://user-images.githubusercontent.com/1563903/174122351-7e978301-7dae-486a-9141-d3d46f97b9fa.png)
+
 
 ## Leaderboard
 
 The leaderboard will show the user who has asked the most questions and answered the most questions
+![image](https://user-images.githubusercontent.com/1563903/174122448-20148ca8-91c7-4bfa-b053-43e96ad0d400.png)
 
 
 ## Runing the project
