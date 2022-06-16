@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Avatar from './Avatar'
 import QuestionLink from './QuestionLink'
 
 class QuestionList extends Component {
@@ -20,30 +21,35 @@ class QuestionList extends Component {
 
     return (
         <div>
-            <img  alt='pic' src={'/images/'+ user.avatarURL}/>
-            <div>Welcome {user ? user.name : '' }</div>
-            <div><input type="submit" value={this.state.toggleText} onClick={this.toggleQuestions} /></div>
+            <Avatar/>
+            <br/>
+            <div id='questions'>
+                <h2>Questions</h2>
+                <input type="submit" value={this.state.toggleText} onClick={this.toggleQuestions} /></div>
+            <div/>
+            <br/>
 
             {this.state.showUnanswered && (
-                <div id='unanswered'>
+                <div id='question'>
                     {unansweredQuestions && unansweredQuestions.map((id) => (
                         <li key={id}>
                             <div>
                                 <QuestionLink id={id} answered={false}/>
                             </div>
-
+                            <br/>
                         </li>
                     ))}
                 </div>
             )}
 
             {!this.state.showUnanswered && (
-                <div id='answered'>
+                <div id='question'>
                     {answeredQuestions && answeredQuestions.map((id) => (
                         <li key={id}>
                             <div>
                                 <QuestionLink id={id} answered={true}/>
                             </div>
+                            <br/>
                         </li>
                     ))}
                 </div>

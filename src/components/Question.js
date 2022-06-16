@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addUserAnswer } from '../actions/users'
 import { addQuestionVote } from '../actions/questions'
+import Avatar from './Avatar'
 
 class Question extends Component {
     state = { saved: false }
@@ -25,10 +26,12 @@ class Question extends Component {
         const { answered, id, user, users, questions } = this.props
 
         return (
-          <div>
+          <div id='question'>
+                <Avatar/>
+                <br/>
                 { id && !answered && !this.state.saved && (
                     <div>
-                        <img  alt='pic' src={'/images/' + users[questions[id].author].avatarURL}/>
+                        <img  alt='pic' width="50" height="50" src={'/images/' + users[questions[id].author].avatarURL}/>
                         <div>{users[questions[id].author].name} asked would you rather?</div>
                         <div><button onClick={() => this.saveAnswer(user.id, id, 'optionOne')}>{ questions[id].optionOne.text }</button> or <button onClick={() => this.saveAnswer(user.id, id, 'optionTwo')}>{ questions[id].optionTwo.text }</button></div>
                     </div>
@@ -36,7 +39,7 @@ class Question extends Component {
 
                 { id && (answered || this.state.saved) && (
                     <div>
-                        <img  alt='pic' src={'/images/' + users[questions[id].author].avatarURL}/>
+                        <img  alt='pic' width="50" height="50" src={'/images/' + users[questions[id].author].avatarURL}/>
                         <div>{users[questions[id].author].name} asked would you rather { questions[id].optionOne.text } or { questions[id].optionTwo.text }?</div>
                         <div>{user.name} would rather <span style={{ display: this.getAnsweredQuestion(1, user.answers[id]) }}>{ questions[id].optionOne.text }</span> <span style={{ display: this.getAnsweredQuestion(2, user.answers[id]) }}>{ questions[id].optionTwo.text }</span></div>
                         <div>{ questions[id].optionOne.text } has {questions[id].optionOne.votes.length} Votes, {Math.round(questions[id].optionOne.votes.length / (questions[id].optionOne.votes.length + questions[id].optionTwo.votes.length) * 100)}% of people voted for this option</div>

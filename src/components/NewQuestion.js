@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import Avatar from './Avatar'
 import { handleAddQuestion } from '../actions/questions'
 
 class NewQuestion extends Component{        
@@ -28,7 +29,10 @@ class NewQuestion extends Component{
         }
 
         return (
-            <div>
+            <div id='newQuestion'>
+                <Avatar/>
+                <br/>
+                <h2>New Question</h2>
                 <div>Would You Rather?</div>
                 <form onSubmit={handleSubmit}>
                     <div>
@@ -37,6 +41,7 @@ class NewQuestion extends Component{
                     <div>
                         <input type="text" placeholder="Option 2" onChange={(e) => this.setState({ optionTwo: e.target.value})}/>
                     </div>
+                    <br/>
                     <div>
                         <input type="submit" value="Save" disabled={this.state.optionOne.trim().length === 0 || this.state.optionTwo.trim().length === 0} />
                     </div>

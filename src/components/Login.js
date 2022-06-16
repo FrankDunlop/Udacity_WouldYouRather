@@ -27,9 +27,9 @@ class Login extends Component {
     }
 
     return (
-      <div>
+      <div id='login'>
             <h3> Welcome to Would You Rather </h3>
-            <h3> Login </h3>
+            <h3> Select a user to Login </h3>
             <div>
               <select onChange={handleChange}>
                 {userIds.map((id, i) => 
@@ -37,6 +37,7 @@ class Login extends Component {
                 )}
               </select>
             </div>
+            <br/>
             <button onClick={this.LoginUser}>Login</button>
       </div>
     )

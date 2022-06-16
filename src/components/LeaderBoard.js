@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Avatar from './Avatar'
 import UserScores from './UserScores'
 
 class Leaderboard extends Component {
@@ -7,9 +8,13 @@ class Leaderboard extends Component {
         const { userIds, users } = this.props
 
         return (
-            <div >
+            <div id='score'>
+                <Avatar />
+                <br/>
+                <h2>Leaderboard</h2>
                 {userIds.map((id) => (
                     <li key={id}>
+                        <br/>
                         <UserScores user={users[id]} />
                     </li>
                 ))}
