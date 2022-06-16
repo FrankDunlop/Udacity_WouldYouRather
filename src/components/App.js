@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 //import { render } from 'react-dom';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Login from './Login'
@@ -17,7 +17,7 @@ class App extends Component{
     this.props.dispatch(handleInitialData())
   }
 
-   render() {
+   render() { 
      return (
       <Router>
         <Fragment>
@@ -27,16 +27,16 @@ class App extends Component{
               this.props.authedUser === null ? <Login /> : 
               <div>
                   <Nav />
-                  <Route path='/' exact component={Login} />
-                  <Route path='/logout' exact component={Logout} />
-                  <Route path='/leaderboard' component={LeaderBoard} />
-                  <Route path='/questions' component={QuestionList} />
-                  <Route path='/question/:id' component={Question} />
-                  <Route path='/add' component={NewQuestion} />
-                  {/* <Route path="/404" component={Error} />
-                  <Redirect to="/404" />  */}
-                  {/* <Route path='*' component={Error} /> */}
-
+                  <Switch>
+                    <Route path='/' exact component={Login} />
+                    <Route path='/logout' exact component={Logout} />
+                    <Route path='/leaderboard' exact component={LeaderBoard} />
+                    <Route path='/questions' exact component={QuestionList} />
+                    <Route path='/question/:id' exact component={Question} />
+                    <Route path='/add' exact component={NewQuestion} />
+                    <Route path='/error' exact component={Error} />
+                    <Redirect to="/error"/>
+                  </Switch>
                 </div>
             }
           </div>
