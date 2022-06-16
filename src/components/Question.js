@@ -26,7 +26,6 @@ class Question extends Component {
     render() {
         const { answered, id, user, users, questions } = this.props
 
-        console.log(id)
         if (!questions[id]) {
             return <Redirect to={'/error'} />
           }

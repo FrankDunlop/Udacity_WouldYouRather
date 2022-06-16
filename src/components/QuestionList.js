@@ -24,13 +24,13 @@ class QuestionList extends Component {
             <Avatar/>
             <br/>
             <div id='questions'>
-                <h2>Questions</h2>
                 <input type="submit" value={this.state.toggleText} onClick={this.toggleQuestions} /></div>
             <div/>
             <br/>
 
             {this.state.showUnanswered && (
                 <div id='question'>
+                    <h2>Unanswered Questions</h2>
                     {unansweredQuestions && unansweredQuestions.map((id) => (
                         <li key={id}>
                             <div>
@@ -44,6 +44,7 @@ class QuestionList extends Component {
 
             {!this.state.showUnanswered && (
                 <div id='question'>
+                    <h2>Answered Questions</h2>
                     {answeredQuestions && answeredQuestions.map((id) => (
                         <li key={id}>
                             <div>
