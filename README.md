@@ -14,7 +14,9 @@ The user can select from three user logins on the home page
 ## Questions
 
 On the main page the user can select between answered and unanswered questions, the button on screen toggles between answered and unanswered
-![image](https://user-images.githubusercontent.com/1563903/174121735-dc80fc12-9a77-4ea2-a19b-0c179d0d701d.png)
+
+![image](https://user-images.githubusercontent.com/1563903/174123550-c0d2665b-c385-4131-96dc-caa2c5253c89.png)
+
 
 ### Unanswered Questions
 ![image](https://user-images.githubusercontent.com/1563903/174122116-ddc9ae5c-ac72-4dcb-9a23-903297aca918.png)
