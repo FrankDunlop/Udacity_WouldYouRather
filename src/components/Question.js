@@ -5,7 +5,7 @@ import { addUserAnswer } from '../actions/users'
 import { addQuestionVote } from '../actions/questions'
 
 class Question extends Component {
-    state = { Saved: false }
+    state = { saved: false, answered: false }
 
     getAnsweredQuestion = (option, userSelection) => {
         if(option === 1){
@@ -25,13 +25,9 @@ class Question extends Component {
     render() {
         const { answered, id, user, users, questions } = this.props
 
-        if (this.state.saved) {
-            return <Redirect to={'/questions'} />
-        }
-
         return (
           <div>
-                { id && !answered && (
+                { id && !answered && !this.state.saved && (
                     <div>
                         <img  alt='pic' src={'/images/' + users[questions[id].author].avatarURL}/>
                         <div>{users[questions[id].author].name} asked would you rather?</div>
@@ -39,9 +35,9 @@ class Question extends Component {
                     </div>
                 )}
 
-                { id && answered && (
+                { id && (answered || this.state.saved) && (
                     <div>
-                        {/* <img  alt='pic' src={'/images/' + users[questions[id].author].avatarURL}/> */}
+                        <img  alt='pic' src={'/images/' + users[questions[id].author].avatarURL}/>
                         <div>{users[questions[id].author].name} asked would you rather { questions[id].optionOne.text } or { questions[id].optionTwo.text }?</div>
                         <div>{user.name} would rather <span style={{ display: this.getAnsweredQuestion(1, user.answers[id]) }}>{ questions[id].optionOne.text }</span> <span style={{ display: this.getAnsweredQuestion(2, user.answers[id]) }}>{ questions[id].optionTwo.text }</span></div>
                         <div>{ questions[id].optionOne.text } has {questions[id].optionOne.votes.length} Votes, {Math.round(questions[id].optionOne.votes.length / (questions[id].optionOne.votes.length + questions[id].optionTwo.votes.length) * 100)}% of people voted for this option</div>
