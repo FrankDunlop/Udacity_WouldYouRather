@@ -14,6 +14,8 @@ The user can select from three user logins on the home page
 ## Questions
 
 On the main page the user can select between answered and unanswered questions, the button on screen toggles between answered and unanswered
+Clicking on a question will bring you to the question screen where the user can select between two options or the poll result screen.
+When a user answers a question the poll results for that question will be displayed.
 
 ![image](https://user-images.githubusercontent.com/1563903/174123550-c0d2665b-c385-4131-96dc-caa2c5253c89.png)
 
