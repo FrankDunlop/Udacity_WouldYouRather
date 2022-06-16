@@ -13,9 +13,10 @@ The user can select from three user logins on the home page
 
 ## Questions
 
-On the main page the user can select between answered and unanswered questions, the button on screen toggles between answered and unanswered
-Clicking on a question will bring you to the question screen where the user can select between two options or the poll result screen.
+On the main page the user can select between answered and unanswered questions, the button on screen toggles between answered and unanswered.
+Clicking on an unsanswered question will bring you to the voting screen where the user can select between two options.
 When a user answers a question the poll results for that question will be displayed.
+Clicking on an answered question will display the vote results for that question.
 
 ![image](https://user-images.githubusercontent.com/1563903/174123550-c0d2665b-c385-4131-96dc-caa2c5253c89.png)
 
@@ -30,7 +31,7 @@ When a user answers a question the poll results for that question will be displa
 
 ## New Questions
 
-New quesstions can be added to the game
+New quesstions can be added to the game and will appear in the unanswered question list
 
 ![image](https://user-images.githubusercontent.com/1563903/174124273-5c5721d4-2bec-4d51-934f-22ff856cb657.png)
 
