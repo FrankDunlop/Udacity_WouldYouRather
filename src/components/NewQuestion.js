@@ -11,19 +11,20 @@ class NewQuestion extends Component{
         Saved: false
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault()
+
+        this.setState(() => ({
+            optionOne: '',
+            optionTwo: '',
+            saved: true
+        }))
+
+        this.props.dispatch(handleAddQuestion(this.state.optionOne, this.state.optionTwo))
+    }
+
     render() {    
-        const handleSubmit = (e) => {
-            e.preventDefault()
-
-            this.setState(() => ({
-                optionOne: '',
-                optionTwo: '',
-                saved: true
-            }))
-
-            this.props.dispatch(handleAddQuestion(this.state.optionOne, this.state.optionTwo))
-        }
-
+    
         if (this.state.saved) {
             return <Redirect to={'/'} />
         }
@@ -34,7 +35,7 @@ class NewQuestion extends Component{
                 <br/>
                 <h2>New Question</h2>
                 <div>Would You Rather?</div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
                     <div>
                         <input type="text" placeholder="Option 1" onChange={(e) => this.setState({ optionOne: e.target.value})}/>
                     </div>
